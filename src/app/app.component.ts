@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 declare var $: any
 
 @Component({
@@ -8,4 +9,7 @@ declare var $: any
 })
 export class AppComponent {
   title = 'ETicaretClient';
+
+  
+
 }
