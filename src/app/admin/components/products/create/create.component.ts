@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent, SpinnerType } from 'src/app/base/base.component';
 import { Create_Product } from 'src/app/contracts/product';
+import { AlertifyService, MessageType, Position } from 'src/app/services/admin/alertify.service';
 import { ProductService } from 'src/app/services/common/models/product.service';
 
 @Component({
@@ -11,7 +12,12 @@ import { ProductService } from 'src/app/services/common/models/product.service';
 })
 export class CreateComponent extends BaseComponent implements OnInit{
 
-  constructor(spinner : NgxSpinnerService, private productService: ProductService) {
+  constructor(
+    spinner : NgxSpinnerService, 
+    private productService: ProductService,
+    private alertify : AlertifyService
+    ) 
+    {
 
     super(spinner);
 
@@ -22,12 +28,20 @@ export class CreateComponent extends BaseComponent implements OnInit{
   }
 
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {
+    this.showSpinner(SpinnerType.ballClipRotateMultiple)
     const create_Product: Create_Product = new Create_Product();
     create_Product.name = name.value;
     create_Product.stock = parseInt(stock.value);
     create_Product.price = parseFloat(price.value);
 
-    this.productService.create(create_Product);
+    this.productService.create(create_Product, () => {
+      this.hideSpinner(SpinnerType.ballClipRotateMultiple);
+      this.alertify.message("Ürün başarıyla eklenmiştir.", {
+        dismissOthers : true,
+        MessageType : MessageType.Success,
+        position : Position.TopRight
+      })
+    });
   }
 
 }

@@ -9,13 +9,13 @@ export class ProductService {
 
   constructor(private httpClientService: HttpClientService) { }
 
-  create(product: Create_Product) {
+  create(product: Create_Product, successCallBack? : any) {
 
     this.httpClientService.post({
       controller: "products"
     },product)
     .subscribe(result => {
-      alert("başarılı");
+      successCallBack();
     });
 
   }
