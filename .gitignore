@@ -32,8 +32,7 @@ yarn-error.log
 .vs/*
 !.vs/ETicaretClient
 !.vs/VSWorkspaceState.json
-!.vs/slnx.sqlite
-.history/*
+!.vs/slnx.sqlite/*
 
 # Miscellaneous
 /.angular/cache
