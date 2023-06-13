@@ -29,10 +29,7 @@ yarn-error.log
 .history/*
 
 # Visual Studio
-.vs/*
-!.vs/ETicaretClient
-!.vs/VSWorkspaceState.json
-!.vs/slnx.sqlite/*
+.vs/
 
 # Miscellaneous
 /.angular/cache
