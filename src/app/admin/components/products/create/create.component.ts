@@ -28,6 +28,7 @@ export class CreateComponent extends BaseComponent implements OnInit{
   }
 
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {
+
     this.showSpinner(SpinnerType.ballClipRotateMultiple)
     const create_Product: Create_Product = new Create_Product();
     create_Product.name = name.value;
@@ -41,6 +42,13 @@ export class CreateComponent extends BaseComponent implements OnInit{
         MessageType : MessageType.Success,
         position : Position.TopRight
       })
+    },errorMessage => {
+      this.alertify.message(errorMessage, 
+        {
+            dismissOthers : true,
+            MessageType: MessageType.Error,
+            position: Position.TopRight
+        });
     });
   }
 
