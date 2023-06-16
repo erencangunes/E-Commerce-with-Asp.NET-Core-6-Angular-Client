@@ -12,6 +12,8 @@ import { ProductService } from 'src/app/services/common/models/product.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
+
+
 export class ListComponent extends BaseComponent implements OnInit{
 
   constructor(
@@ -24,7 +26,7 @@ export class ListComponent extends BaseComponent implements OnInit{
 
     }
 
-  displayedColumns: string[] = ['name', 'stock', 'price', 'createDate', 'updateDate'];  
+  displayedColumns: string[] = ['name', 'stock', 'price', 'createDate', 'updateDate', 'edit', 'delete'];  
   dataSource : MatTableDataSource<List_Product> = null
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -51,6 +53,7 @@ export class ListComponent extends BaseComponent implements OnInit{
       await this.getProducts();
       
   }
+
 
 
   async ngOnInit()  {

@@ -26,18 +26,19 @@ export class CreateComponent extends BaseComponent implements OnInit{
 
   }
 
+  // Eklenen ürünü listede göstermek için
   @Output() createdProduct : EventEmitter<Create_Product> = new EventEmitter();
 
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {
 
-    this.showSpinner(SpinnerType.ballClipRotateMultiple)
+    this.showSpinner(SpinnerType.ballRunningDots)
     const create_Product: Create_Product = new Create_Product();
     create_Product.name = name.value;
     create_Product.stock = parseInt(stock.value);
     create_Product.price = parseFloat(price.value);
 
     this.productService.create(create_Product, () => {
-      this.hideSpinner(SpinnerType.ballClipRotateMultiple);
+      this.hideSpinner(SpinnerType.ballRunningDots);
       this.alertify.message("Ürün başarıyla eklenmiştir.", {
         dismissOthers : true,
         MessageType : MessageType.Success,

@@ -22,7 +22,7 @@ export class ProductsComponent extends BaseComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.showSpinner(SpinnerType.cubeTransition)
+    this.showSpinner(SpinnerType.ballRunningDots)
 
     this.httpClientService.get({
     controller: "products"

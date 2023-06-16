@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CreateComponent } from './create/create.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { DeleteDirective } from 'src/app/directives/admin/delete.directive';
 
 
 
@@ -18,6 +19,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ProductsComponent,
     CreateComponent,
     ListComponent,
+    DeleteDirective,
   ],
   imports: [
     CommonModule,
