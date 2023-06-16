@@ -8,6 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { CreateComponent } from './create/create.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -25,7 +27,9 @@ import { CreateComponent } from './create/create.component';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
   ]
 })
 export class ProductsModule { }
