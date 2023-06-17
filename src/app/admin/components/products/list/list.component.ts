@@ -34,12 +34,15 @@ export class ListComponent extends BaseComponent implements OnInit{
   async getProducts() {
 
     this.showSpinner(SpinnerType.ballRunningDots);
+
     const allProducts : { totalCount: number; products: List_Product[]} =  await this.productService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5, 
-                                                                        () => this.hideSpinner(SpinnerType.ballRunningDots), errorMessage => 
+    () => this.hideSpinner(SpinnerType.ballRunningDots), 
+    errorMessage => 
     this.alertify.message(errorMessage, {
       dismissOthers : true,
       MessageType : MessageType.Error,
       position : Position.TopRight
+      
     }));
 
     this.dataSource = new MatTableDataSource<List_Product>(allProducts.products);
@@ -47,6 +50,7 @@ export class ListComponent extends BaseComponent implements OnInit{
 
 
   }
+
 
   async pageChanged(){
 
